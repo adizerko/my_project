@@ -22,4 +22,4 @@ def read_root():
 
 @app.get("/")
 def serve_index():
-    return FileResponse("../frontend/index.html")
+    return FileResponse("../frontend/index.html") # Ваыфаыфвыфвыфыфввыфыфвфы
