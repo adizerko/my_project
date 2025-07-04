@@ -20,6 +20,6 @@ app.mount("/frontend", StaticFiles(directory="../frontend"), name="frontend")
 def read_root():
     return {"message": "Привет от FastAPI"}
 
-@app.get("/")
+@app.get("/") #sdasdasd sad  sadad sasd asd asd 
 def serve_index():
     return FileResponse("../frontend/index.html") # Ваыфаыфвыфвыфыфввыфыфвфы
