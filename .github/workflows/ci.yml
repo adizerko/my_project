@@ -1,0 +1,32 @@
+name: CI for FastAPI Project
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🔄 Клонируем репозиторий
+      uses: actions/checkout@v3
+
+    - name: 🐍 Устанавливаем Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: 📦 Устанавливаем зависимости
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install --upgrade pip
+        pip install -r backend/requirements.txt
+
+    - name: ✅ Проверка, что FastAPI код запускается (импортируется)
+      run: |
+        source venv/bin/activate
+        python -c "from backend import main; print('FastAPI загружен 👍')"
